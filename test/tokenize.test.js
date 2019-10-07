@@ -153,6 +153,15 @@ it('tokenizes quoted urls', () => {
   ])
 })
 
+it('supports line-height set from custom property', () => {
+  run('1em/var(--line-height)', [
+    ['word', '1em', 1, 1, 1, 3],
+    ['word', '/', 1, 4, 1, 4],
+    ['word', 'var', 1, 5, 1, 5],
+    ['brackets', '(--line-height)', 1, 8, 1, 22]
+  ])
+})
+
 it('tokenizes at-symbol', () => {
   run('@', [['at-word', '@', 1, 1, 1, 1]])
 })

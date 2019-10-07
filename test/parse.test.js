@@ -87,6 +87,11 @@ it('parses unofficial --mixins', () => {
   expect(root.first.first.selector).toEqual('--x')
 })
 
+it('parses --mixins in font', () => {
+  let root = parse('html { font: 1em/var(--line-height); }')
+  expect(root.toString()).toEqual('html { font: 1em/var(--line-height); }')
+})
+
 it('ignores symbols before declaration', () => {
   let root = parse('a { :one: 1 }')
   expect(root.first.first.raws.before).toEqual(' :')
